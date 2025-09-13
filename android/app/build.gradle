@@ -1,0 +1,71 @@
+plugins {
+    id "com.android.application"
+    id "org.jetbrains.kotlin.android"        // <-- required for kotlinOptions
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+if (flutterVersionCode == null) {
+    flutterVersionCode = '1'
+}
+
+def flutterVersionName = localProperties.getProperty('flutter.versionName')
+if (flutterVersionName == null) {
+    flutterVersionName = '1.0'
+}
+
+android {
+    namespace "com.example.anydrop"
+    compileSdk 34                          // ✅ new style (no "Version")
+
+    ndkVersion flutter.ndkVersion
+
+    defaultConfig {
+        applicationId "com.example.anydrop"
+        minSdk 21                          // ✅ new style
+        targetSdk 34                       // ✅ new style
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17   // ✅ match your JDK
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"                           // ✅ upgrade from 1.8
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.debug
+        }
+    }
+}
+
+flutter {
+    source '../..'
+}
+
+dependencies {}
+
+configurations.all {
+    resolutionStrategy {
+        force 'org.jetbrains.kotlin:kotlin-stdlib:1.8.22'
+        force 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22'
+        force 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22'
+    }
+}
