@@ -1,16 +1,36 @@
-# anydrop
+# AnyDrop  
 
-A new Flutter project.
+🚀 **AnyDrop** is a cross-platform file sharing application built with **Flutter**, designed for fast, simple, and secure sharing between devices.  
 
-## Getting Started
+## ✨ Features  
+- 📱 **Cross-platform support** (Android, iOS, Desktop in future)  
+- ⚡ **Fast file transfers** over local Wi-Fi / Hotspot  
+- 🎨 **Clean and minimal UI**  
+- 🔒 **Secure connections** for safe file sharing  
+- 🖼️ Planned: Support for media previews and history logs  
 
-This project is a starting point for a Flutter application.
+## 🛠️ Tech Stack  
+- **Flutter** (Dart) for cross-platform app development  
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🚀 Getting Started  
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Prerequisites  
+- [Flutter SDK](https://flutter.dev/docs/get-started/install) (>=3.0)  
+- Android Studio / VS Code with Flutter plugin  
+
+### Installation  
+```bash
+# Clone the repo
+git clone https://github.com/<your-username>/AnyDrop.git
+
+# Navigate to project
+cd AnyDrop
+
+# Install dependencies
+flutter pub get
+
+# Run the app
+flutter run
+
+
